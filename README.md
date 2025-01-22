@@ -8,7 +8,7 @@ This project demonstrates an end-to-end DevOps implementation for a web applicat
 - CI/CD pipeline using GitHub Actions.
 - Dockerized application for consistent deployment.
 - Locally hosted using Docker Compose.
-- **New**: Final Assessment page with an overview of our Software Engineering project.
+- Final Assessment page with an overview of our Software Engineering project.
 
 ## Project Structure
 
@@ -17,7 +17,7 @@ devops-webapp-project/
 │
 ├── .github/
 │   └── workflows/
-│       └── ci-cd-pipeline.yml       # GitHub Actions CI/CD pipeline configuration
+│       └── ci-cd.yml       # GitHub Actions CI/CD pipeline configuration
 ├── docker-compose.yml               # Docker Compose configuration
 ├── Dockerfile                        # Dockerfile for building the app image
 ├── package.json                      # NPM project configuration
@@ -135,9 +135,9 @@ The CI/CD pipeline automates the process of building, testing, and deploying the
 3. **Deploy Stage**:
    - After passing tests, the application is deployed using Docker Compose.
 
-The pipeline is defined in `.github/workflows/ci-cd-pipeline.yml`.
+The pipeline is defined in `.github/workflows/ci-cd.yml`.
 
-Here is a simplified version of the CI/CD pipeline file:
+Here is a simplified version of the CI/CD file:
 
 ```yaml
 name: CI/CD Pipeline
