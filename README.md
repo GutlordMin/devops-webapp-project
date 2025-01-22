@@ -17,14 +17,17 @@ devops-webapp-project/
 │
 ├── .github/
 │   └── workflows/
-│       └── ci-cd.yml       # GitHub Actions CI/CD pipeline configuration
+│       └── ci-cd.yml               # GitHub Actions CI/CD pipeline configuration
 ├── docker-compose.yml               # Docker Compose configuration
 ├── Dockerfile                        # Dockerfile for building the app image
 ├── package.json                      # NPM project configuration
 ├── README.md                         # Project documentation (this file)
-└── src/
-    ├── index.js                      # Main application file
-    └── ...                           # Other source code files
+├── src
+├── index.js                      # Main application file
+├── scripts
+├── node_modules
+├── prometheus.yml 
+           
 ```
 
 ## 1. Documentation
