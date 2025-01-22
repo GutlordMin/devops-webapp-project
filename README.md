@@ -6,6 +6,6 @@ This project demonstrates an end-to-end DevOps implementation for a web applicat
 - Git and GitHub for version control.
 - CI/CD pipeline using GitHub Actions.
 - Dockerized application for consistent deployment.
-- Deployed to AWS EC2.
+- Locally hosted using Docker Compose.
 
 ## Project Structure
