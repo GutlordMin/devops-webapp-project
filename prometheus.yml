@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 15s  # How often to scrape the metrics
+
+scrape_configs:
+  - job_name: 'webapp'
+    static_configs:
+      - targets: ['app:3000']  # Connects to your app running inside the container on port 3000
