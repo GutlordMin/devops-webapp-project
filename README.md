@@ -1,6 +1,4 @@
-Here's the updated **`README.md`** incorporating the **Documentation** section:
 
-```markdown
 # DevOps WebApp Project
 
 This project demonstrates an end-to-end DevOps implementation for a web application.
@@ -10,6 +8,7 @@ This project demonstrates an end-to-end DevOps implementation for a web applicat
 - CI/CD pipeline using GitHub Actions.
 - Dockerized application for consistent deployment.
 - Locally hosted using Docker Compose.
+- **New**: Final Assessment page with an overview of our Software Engineering project.
 
 ## Project Structure
 
@@ -240,5 +239,113 @@ If you encounter any issues, here are some common solutions:
 - **Port Conflicts**: Ensure no other services are running on the same port (`3000` by default).
 - **Missing Dependencies**: If `npm install` or `docker-compose build` fails, try deleting `node_modules` and `package-lock.json` (or the Docker cache) and reinstalling.
 - **Docker Issues**: If the application doesn't run in Docker, make sure Docker and Docker Compose are properly installed and running.
+
+---
+
+### 1.6 Monitoring with Prometheus and Grafana
+
+In the future, we plan to add **Prometheus** and **Grafana** for basic monitoring of the application. These tools will allow us to track performance metrics and visualize the health and status of the application.
+
+#### Prometheus: Monitoring and Alerting
+
+**Prometheus** is an open-source system monitoring and alerting toolkit. It is designed for reliability and scalability, making it perfect for monitoring applications and services in production. Prometheus can collect metrics such as CPU usage, memory consumption, request rates, error rates, and more, from your application containers.
+
+Prometheus works by scraping metrics from targets at specified intervals. These metrics are exposed in a special format (e.g., `/metrics` endpoint) by your application. Prometheus then stores this data and allows you to query it for monitoring and alerting purposes.
+
+- **Installation and Setup**: 
+  For setting up Prometheus, you would configure Prometheus to scrape metrics from your application's endpoint.
+  
+  Example `prometheus.yml` configuration to scrape metrics from your application:
+  ```yaml
+  scrape_configs:
+    - job_name: 'webapp'
+      static_configs:
+        - targets: ['webapp:3000']
+  ```
+
+  - **Setting Up in Docker**: 
+    You can add Prometheus as a service in your `docker-compose.yml` file.
+
+#### Grafana: Data Visualization
+
+**Grafana** is a powerful open-source data visualization tool that works seamlessly with Prometheus. It provides a user-friendly interface for displaying Prometheus metrics and creating dashboards to monitor the performance and health of your application.
+
+With Grafana, you can set up custom dashboards to track key metrics such as:
+
+- CPU and memory usage
+- Response times for HTTP requests
+- Error rates
+- Application performance metrics
+
+Grafana queries Prometheus for data and then visualizes it in customizable charts, graphs, and other visualization formats.
+
+- **Installation and Setup**:
+  To set up Grafana, you can add it as a service in your `docker-compose.yml` file and point it to your Prometheus instance.
+
+  Example `docker-compose.yml` snippet to include Grafana:
+  ```yaml
+  version: '3.8'
+
+  services:
+    prometheus:
+      image: prom/prometheus
+      container_name: prometheus
+      volumes:
+        - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      ports:
+        - "9090:9090"
+      networks:
+        - monitoring
+
+    grafana:
+      image: grafana/grafana
+      container_name: grafana
+      environment:
+        - GF_SECURITY_ADMIN_PASSWORD=admin
+      ports:
+        - "3001:3000"
+      depends_on:
+        - prometheus
+      networks:
+        - monitoring
+
+  networks:
+    monitoring:
+      driver: bridge
+  ```
+
+- **Accessing Grafana**: 
+  Once Grafana is running, you can access the Grafana dashboard at `http://localhost:3001`. Log in using the default username (`admin`) and password (`admin`), and then configure Prometheus as your data source in Grafana.
+
+#### Basic Metrics to Monitor
+
+With Prometheus and Grafana, we can track the following key metrics:
+
+1. **Application Metrics**:
+   - HTTP request rate
+   - Response times
+   - Error rate (4xx and 5xx status codes)
+
+2. **System Metrics**:
+   - CPU usage
+   - Memory usage
+   - Disk I/O
+   - Network traffic
+
+3. **Docker Container Metrics**:
+   - Container memory and CPU usage
+   - Container restart count
+
+#### Setting Up Monitoring (Future Steps)
+
+As part of future improvements, we will integrate Prometheus and Grafana into this project for enhanced monitoring. This setup will enable real-time tracking of application performance and help in proactive issue detection and resolution.
+
+To begin using Prometheus and Grafana for monitoring:
+
+1. **Add Prometheus and Grafana to your Docker setup** (as outlined above).
+2. **Configure Prometheus to scrape metrics** from the application.
+3. **Create Grafana dashboards** to visualize the metrics collected by Prometheus.
+
+---
 
 For further assistance, refer to the `README.md` for troubleshooting tips and additional resources.
