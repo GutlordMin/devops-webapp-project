@@ -26,9 +26,9 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      # Step 4: Verify Application Starts
-      - name: Start Application
-        run: npm start
+      # Step 4: Run build script
+      - name: Build Application
+        run: npm run build
 
   test:
     runs-on: ubuntu-latest
