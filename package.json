@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "build": "echo 'Build process completed successfully!'"
+    "test": "echo 'No tests specified yet' && exit 0"
   },
   "dependencies": {
     "express": "^4.17.1"
