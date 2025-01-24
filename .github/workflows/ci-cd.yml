@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04 # Explicitly set Ubuntu version
+    runs-on: ubuntu-latest
     steps:
       # Step 1: Checkout the repository
       - name: Checkout Code
@@ -26,12 +26,12 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      # Step 4: Run build script
-      - name: Build Application
-        run: npm run build
+      # Step 4: Verify Application Starts
+      - name: Start Application
+        run: npm start
 
   test:
-    runs-on: ubuntu-22.04 # Explicitly set Ubuntu version
+    runs-on: ubuntu-latest
     needs: build
     steps:
       # Step 1: Checkout the repository
@@ -51,7 +51,7 @@ jobs:
         run: docker-compose run app npm test
 
   deploy:
-    runs-on: ubuntu-22.04 # Explicitly set Ubuntu version
+    runs-on: ubuntu-latest
     needs: test
     steps:
       # Step 1: Checkout the repository
