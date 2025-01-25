@@ -20,11 +20,12 @@ devops-webapp-project/
 ├── Dockerfile                        # Dockerfile for building the app image
 ├── package.json                      # NPM project configuration
 ├── README.md                         # Project documentation (this file)
-├── src
-├── index.js                      # Main application file
-├── scripts
-├── node_modules
-├── prometheus.yml
+├── src/                              # Application source files
+├── index.js                          # Main application file
+├── scripts/                           # Custom scripts
+├── node_modules/                     # Node.js dependencies
+├── prometheus.yml                    # Prometheus configuration file
+
 
 ## 1. Documentation
 
