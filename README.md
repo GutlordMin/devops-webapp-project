@@ -1,6 +1,3 @@
-Here's the updated version of your README that includes the relevant details from your CI/CD pipeline:
-
-```markdown
 # DevOps WebApp Project
 
 This project demonstrates an end-to-end DevOps implementation for a web application.
@@ -14,7 +11,6 @@ This project demonstrates an end-to-end DevOps implementation for a web applicat
 
 ## Project Structure
 
-```
 devops-webapp-project/
 │
 ├── .github/
@@ -23,21 +19,20 @@ devops-webapp-project/
 ├── docker-compose.yml               # Docker Compose configuration
 ├── Dockerfile                        # Dockerfile for building the app image
 ├── package.json                      # NPM project configuration
-├── package-lock.json                     
 ├── README.md                         # Project documentation (this file)
 ├── src
 ├── index.js                      # Main application file
 ├── scripts
 ├── node_modules
-├── prometheus.yml 
-           
-```
+├── prometheus.yml
+
 
 ## 1. Documentation
 
 The documentation provides a comprehensive guide on how to build, test, and deploy your **DevOps Web Application** using the tools and technologies configured in the project. It also explains how to run the application using Docker and describes the CI/CD pipeline for automation.
 
 ---
+
 
 ### 1.1 Project Setup and Prerequisites
 
