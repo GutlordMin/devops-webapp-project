@@ -1,4 +1,6 @@
+Here's the updated version of your README that includes the relevant details from your CI/CD pipeline:
 
+```markdown
 # DevOps WebApp Project
 
 This project demonstrates an end-to-end DevOps implementation for a web application.
@@ -21,6 +23,7 @@ devops-webapp-project/
 ├── docker-compose.yml               # Docker Compose configuration
 ├── Dockerfile                        # Dockerfile for building the app image
 ├── package.json                      # NPM project configuration
+├── package-lock.json                     
 ├── README.md                         # Project documentation (this file)
 ├── src
 ├── index.js                      # Main application file
@@ -116,7 +119,7 @@ docker-compose run app npm test
   This will start the application in detached mode, ensuring it's running in the background.
 
 - **Automated Deployment via CI/CD**:
-  The project is set up with a CI/CD pipeline (as defined in `.github/workflows/ci-cd-pipeline.yml`), which automatically deploys the application after each push to the `main` branch or a successful pull request. The CI/CD pipeline includes:
+  The project is set up with a CI/CD pipeline (as defined in `.github/workflows/ci-cd.yml`), which automatically deploys the application after each push to the `main` branch or a successful pull request. The CI/CD pipeline includes:
   - **Build**: Checkout the repository, install dependencies, and build the application.
   - **Test**: Run tests in a Docker container.
   - **Deploy**: Deploy the application using Docker Compose.
@@ -143,7 +146,7 @@ The pipeline is defined in `.github/workflows/ci-cd.yml`.
 Here is a simplified version of the CI/CD file:
 
 ```yaml
-name: CI/CD Pipeline
+name: CI/CD
 
 on:
   push:
@@ -181,6 +184,11 @@ jobs:
       - name: Set up Docker
         uses: docker/setup-buildx-action@v2
 
+      - name: Install Docker Compose
+        run: |
+          sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
+
       - name: Build Docker Image
         run: docker-compose build
 
@@ -196,6 +204,11 @@ jobs:
 
       - name: Set up Docker
         uses: docker/setup-buildx-action@v2
+
+      - name: Install Docker Compose
+        run: |
+          sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
 
       - name: Deploy Application
         run: |
@@ -287,7 +300,6 @@ Grafana queries Prometheus for data and then visualizes it in customizable chart
 
   Example `docker-compose.yml` snippet to include Grafana:
   ```yaml
-  version: '3.8'
 
   services:
     prometheus:
@@ -350,5 +362,4 @@ To begin using Prometheus and Grafana for monitoring:
 3. **Create Grafana dashboards** to visualize the metrics collected by Prometheus.
 
 ---
-
-For further assistance, refer to the `README.md` for troubleshooting tips and additional resources.
+```
