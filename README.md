@@ -1,3 +1,5 @@
+
+
 # DevOps WebApp Project
 
 This project demonstrates an end-to-end DevOps implementation for a web application.
@@ -10,7 +12,7 @@ This project demonstrates an end-to-end DevOps implementation for a web applicat
 - Final Assessment page with an overview of our Software Engineering project.
 
 ## Project Structure
-
+```
 devops-webapp-project/
 │
 ├── .github/
@@ -25,7 +27,7 @@ devops-webapp-project/
 ├── scripts/                           # Custom scripts
 ├── node_modules/                     # Node.js dependencies
 ├── prometheus.yml                    # Prometheus configuration file
-
+```
 ## 1. Documentation
 
 The documentation provides a comprehensive guide on how to build, test, and deploy your **DevOps Web Application** using the tools and technologies configured in the project. It also explains how to run the application using Docker and describes the CI/CD pipeline for automation.
