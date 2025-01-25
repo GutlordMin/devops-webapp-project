@@ -26,7 +26,6 @@ devops-webapp-project/
 ├── node_modules/                     # Node.js dependencies
 ├── prometheus.yml                    # Prometheus configuration file
 
-
 ## 1. Documentation
 
 The documentation provides a comprehensive guide on how to build, test, and deploy your **DevOps Web Application** using the tools and technologies configured in the project. It also explains how to run the application using Docker and describes the CI/CD pipeline for automation.
